@@ -234,8 +234,8 @@ export default function SimpleVaults() {
                     <td>
                       <div>
                         <div className="text-xl font-bold">
-                          {`ptValues?.[i] || coinAmount || number`}
-                          {`vault.deposit_denom || coinDenom || async`}
+                          {/* {`ptValues?.[i] || coinAmount || number`} */}
+                          {/* {`vault.deposit_denom || coinDenom || async`} */}
                         </div>
                         <div className="text-sm opacity-50">{`0 | currency`}</div>
                       </div>
