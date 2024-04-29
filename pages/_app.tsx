@@ -18,7 +18,6 @@ function CreateCosmosApp({ Component, pageProps }: AppProps) {
     // }
   };
   const router = useRouter();
-  console.log('======', router.pathname);
 
   return (
     <ThemeProvider theme={theme}>
@@ -42,11 +41,11 @@ function CreateCosmosApp({ Component, pageProps }: AppProps) {
         signerOptions={signerOptions}
       >
         <div
-          className={`drawer lg:drawer-open w-screen h-screen bg-base-300 ${
+          className={`drawer lg:drawer-open w-screen h-screen ${
             router.pathname.includes('/interest-rate-swap/pools') ||
             router.pathname.includes('/interest-rate-swap/vaults')
               ? 'bg-[#39465d]'
-              : ''
+              : 'bg-base-300'
           }`}
           data-theme="irs"
         >
