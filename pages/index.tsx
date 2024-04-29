@@ -1,17 +1,13 @@
-import { useState } from "react";
-import { Layout, Wallet } from "@/components";
-import { CHAIN_NAME } from "@/config";
+import { useState } from 'react';
+import { Layout, Wallet } from '@/components';
+import { CHAIN_NAME } from '@/config';
 
 export default function Home() {
-    const [chainName, setChainName] = useState(CHAIN_NAME);
+  const [chainName, setChainName] = useState(CHAIN_NAME);
 
-    function onChainChange(chainName?: string) {
-        setChainName(chainName!);
-    }
+  function onChainChange(chainName?: string) {
+    setChainName(chainName!);
+  }
 
-    return (
-        <>
-            <Wallet chainName={chainName} onChainChange={onChainChange} />
-        </>
-    );
+  return <></>;
 }
