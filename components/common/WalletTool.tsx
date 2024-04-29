@@ -1,8 +1,10 @@
 import { Wallet } from '@mui/icons-material';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 export function WalletTool() {
   const [connected, setConnected] = useState(false);
+  const router = useRouter();
 
   return (
     <>
@@ -56,7 +58,10 @@ export function WalletTool() {
                 </div>
 
                 <div className="card-actions justify-end gap-2">
-                  <button className="btn gap-1 btn-info w-full md:w-auto md:px-8" routerLink="/">
+                  <button
+                    className="btn gap-1 btn-info w-full md:w-auto md:px-8"
+                    onClick={() => router.push('/')}
+                  >
                     View Balance
                   </button>
                   <button
