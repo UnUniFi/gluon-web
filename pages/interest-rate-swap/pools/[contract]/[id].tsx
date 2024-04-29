@@ -16,7 +16,11 @@ export default function Pools() {
   const onWithdrawPool = () => {};
   const inputMaxLP = () => {};
 
-  const vaultImage = undefined;
+  const vaultImage = {
+    contract: 'ununifi1nc5tatafv6eyq7llkr2gv50ff9e22mnf70qgjlv737ktmt4eswrqhp8g9l',
+    image: 'https://s2.coinmarketcap.com/static/img/coins/64x64/3794.png',
+    subImage: 'https://s2.coinmarketcap.com/static/img/coins/64x64/21781.png',
+  };
   const vault = {
     strategy_contract: 'ununifi14hj2tavq8fpesdwxxcu44rty3hh90vhujrvcmstl4zr3txmfvw9sm5z28e',
     name: 'stATOM v2',
@@ -135,11 +139,11 @@ export default function Pools() {
             <div className="flex flex-row flex-wrap items-center gap-2">
               <div className="avatar">
                 <div className="w-12 rounded-full">
-                  <Image src={vaultImage?.image} alt="" />
+                  <Image src={vaultImage?.image} alt="" layout="fill" objectFit="contain" />
                 </div>
                 <div className="avatar -ml-3 mt-6">
                   <div className="w-6 rounded-full">
-                    <Image src={vaultImage?.subImage} alt="" />
+                    <Image src={vaultImage?.subImage} alt="" layout="fill" objectFit="contain" />
                   </div>
                 </div>
               </div>
@@ -188,12 +192,22 @@ export default function Pools() {
                         <span className="gap-2 w-full">
                           <div className="hidden sm:avatar">
                             <div className="w-8 rounded-full">
-                              <Image src={vaultImage?.image} alt="" />
+                              <Image
+                                src={vaultImage?.image}
+                                alt=""
+                                layout="fill"
+                                objectFit="contain"
+                              />
                             </div>
                             {vaultImage?.subImage && (
                               <div className="avatar -ml-2 mt-4">
                                 <div className="w-4 rounded-full">
-                                  <Image src={vaultImage?.subImage} alt="" />
+                                  <Image
+                                    src={vaultImage?.subImage}
+                                    alt=""
+                                    layout="fill"
+                                    objectFit="contain"
+                                  />
                                 </div>
                               </div>
                             )}
@@ -241,12 +255,22 @@ export default function Pools() {
                         <span className="gap-2 w-full">
                           <div className="hidden sm:avatar">
                             <div className="w-8 rounded-full border-2 border-primary">
-                              <Image src={vaultImage?.image} alt="" />
+                              <Image
+                                src={vaultImage?.image}
+                                alt=""
+                                layout="fill"
+                                objectFit="contain"
+                              />
                             </div>
                             {vaultImage?.subImage && (
                               <div className="avatar -ml-2 mt-4">
                                 <div className="w-4 rounded-full">
-                                  <Image src={vaultImage?.subImage} alt="" />
+                                  <Image
+                                    src={vaultImage?.subImage}
+                                    alt=""
+                                    layout="fill"
+                                    objectFit="contain"
+                                  />
                                 </div>
                               </div>
                             )}
@@ -301,12 +325,22 @@ export default function Pools() {
                       <span className="gap-2 w-full">
                         <div className="hidden sm:avatar">
                           <div className="w-8 rounded-full border-2 border-secondary">
-                            <Image src={vaultImage?.image} alt="" />
+                            <Image
+                              src={vaultImage?.image}
+                              alt=""
+                              layout="fill"
+                              objectFit="contain"
+                            />
                           </div>
                           {vaultImage?.subImage && (
                             <div className="avatar -ml-2 mt-4">
                               <div className="w-4 rounded-full">
-                                <Image src={vaultImage?.subImage} alt="" />
+                                <Image
+                                  src={vaultImage?.subImage}
+                                  alt=""
+                                  layout="fill"
+                                  objectFit="contain"
+                                />
                               </div>
                             </div>
                           )}
@@ -348,12 +382,22 @@ export default function Pools() {
                         <span className="gap-2 w-full">
                           <div className="hidden sm:avatar">
                             <div className="w-8 rounded-full border-2 border-secondary">
-                              <Image src={vaultImage?.image} alt="" />
+                              <Image
+                                src={vaultImage?.image}
+                                alt=""
+                                layout="fill"
+                                objectFit="contain"
+                              />
                             </div>
                             {vaultImage?.subImage && (
                               <div className="avatar -ml-2 mt-4">
                                 <div className="w-4 rounded-full">
-                                  <Image src={vaultImage?.subImage} alt="" />
+                                  <Image
+                                    src={vaultImage?.subImage}
+                                    alt=""
+                                    layout="fill"
+                                    objectFit="contain"
+                                  />
                                 </div>
                               </div>
                             )}
@@ -409,12 +453,22 @@ export default function Pools() {
                       <span className="gap-2 w-full">
                         <div className="hidden sm:avatar">
                           <div className="w-8 rounded-full">
-                            <Image src={vaultImage?.image} alt="" />
+                            <Image
+                              src={vaultImage?.image}
+                              alt=""
+                              layout="fill"
+                              objectFit="contain"
+                            />
                           </div>
                           {vaultImage?.subImage && (
                             <div className="avatar -ml-2 mt-4">
                               <div className="w-4 rounded-full">
-                                <Image src={vaultImage?.subImage} alt="" />
+                                <Image
+                                  src={vaultImage?.subImage}
+                                  alt=""
+                                  layout="fill"
+                                  objectFit="contain"
+                                />
                               </div>
                             </div>
                           )}
@@ -435,12 +489,22 @@ export default function Pools() {
                       <span className="gap-2 w-full">
                         <div className="hidden sm:avatar">
                           <div className="w-8 rounded-full border-2 border-primary">
-                            <Image src={vaultImage?.image} alt="" />
+                            <Image
+                              src={vaultImage?.image}
+                              alt=""
+                              layout="fill"
+                              objectFit="contain"
+                            />
                           </div>
                           {vaultImage?.subImage && (
                             <div className="avatar -ml-2 mt-4">
                               <div className="w-4 rounded-full">
-                                <Image src={vaultImage?.subImage} alt="" />
+                                <Image
+                                  src={vaultImage?.subImage}
+                                  alt=""
+                                  layout="fill"
+                                  objectFit="contain"
+                                />
                               </div>
                             </div>
                           )}
@@ -526,12 +590,22 @@ export default function Pools() {
                                 <div className="flex flex-row items-center gap-2">
                                   <div className="avatar">
                                     <div className="w-8 rounded-full">
-                                      <Image src={vaultImage?.image} alt="" />
+                                      <Image
+                                        src={vaultImage?.image}
+                                        alt=""
+                                        layout="fill"
+                                        objectFit="contain"
+                                      />
                                     </div>
                                     {vaultImage?.subImage && (
                                       <div className="avatar -ml-2 mt-4">
                                         <div className="w-4 rounded-full">
-                                          <Image src={vaultImage?.subImage} alt="" />
+                                          <Image
+                                            src={vaultImage?.subImage}
+                                            alt=""
+                                            layout="fill"
+                                            objectFit="contain"
+                                          />
                                         </div>
                                       </div>
                                     )}

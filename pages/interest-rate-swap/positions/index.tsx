@@ -221,11 +221,21 @@ export default function Positions() {
                       <div className="flex flex-row items-center gap-2">
                         <div className="avatar">
                           <div className="w-8 rounded-full">
-                            <Image src="{ getVaultImage(p.tranche?.strategy_contract)?.image }" />
+                            <Image
+                              src={getVaultImage(p.tranche?.strategy_contract)?.image}
+                              alt=""
+                              layout="fill"
+                              objectFit="contain"
+                            />
                           </div>
                           <div className="avatar -ml-2 mt-4">
                             <div className="w-4 rounded-full">
-                              <Image src="{ getVaultImage(p.tranche?.strategy_contract)?.subImage }" />
+                              <Image
+                                src={getVaultImage(p.tranche?.strategy_contract)?.subImage}
+                                alt=""
+                                layout="fill"
+                                objectFit="contain"
+                              />
                             </div>
                           </div>
                         </div>
@@ -331,11 +341,21 @@ export default function Positions() {
                       <div className="flex flex-row items-center gap-2">
                         <div className="avatar">
                           <div className="w-8 rounded-full">
-                            <Image src="{ getVaultImage(p.tranche?.strategy_contract)?.image }" />
+                            <Image
+                              src={getVaultImage(p.tranche?.strategy_contract)?.image}
+                              alt=""
+                              layout="fill"
+                              objectFit="contain"
+                            />
                           </div>
                           <div className="avatar -ml-2 mt-4">
                             <div className="w-4 rounded-full">
-                              <Image src="{ getVaultImage(p.tranche?.strategy_contract)?.subImage }" />
+                              <Image
+                                src={getVaultImage(p.tranche?.strategy_contract)?.subImage}
+                                alt=""
+                                layout="fill"
+                                objectFit="contain"
+                              />
                             </div>
                           </div>
                         </div>

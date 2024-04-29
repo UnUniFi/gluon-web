@@ -45,7 +45,11 @@ export default function VaultPage() {
     denom: 'uatom',
     deposit_denom: 'ustatom',
   };
-  const vaultImage = null;
+  const vaultImage = {
+    contract: 'ununifi1nc5tatafv6eyq7llkr2gv50ff9e22mnf70qgjlv737ktmt4eswrqhp8g9l',
+    image: 'https://s2.coinmarketcap.com/static/img/coins/64x64/3794.png',
+    subImage: 'https://s2.coinmarketcap.com/static/img/coins/64x64/21781.png',
+  };
   const denomBalancesMap = null;
   const ptDenom = 'irs/tranche/1/pt';
   const ytDenon = 'irs/tranche/1/yt';
@@ -190,12 +194,22 @@ export default function VaultPage() {
                         <span className="gap-2 w-full">
                           <div className="avatar">
                             <div className="w-8 rounded-full">
-                              <Image src={vaultImage?.image} alt="" />
+                              <Image
+                                src={vaultImage?.image}
+                                alt=""
+                                layout="fill"
+                                objectFit="contain"
+                              />
                             </div>
                             {vaultImage?.subImage && (
                               <div className="avatar -ml-2 mt-4">
                                 <div className="w-4 rounded-full">
-                                  <Image src={vaultImage?.subImage} alt="" />
+                                  <Image
+                                    src={vaultImage?.subImage}
+                                    alt=""
+                                    layout="fill"
+                                    objectFit="contain"
+                                  />
                                 </div>
                               </div>
                             )}
@@ -279,12 +293,22 @@ export default function VaultPage() {
                               swapTab === 'pt' ? 'border-accent' : ''
                             } ${swapTab === 'yt' ? 'border-primary' : ''}`}
                           >
-                            <Image src={vaultImage?.image} alt="" />
+                            <Image
+                              src={vaultImage?.image}
+                              alt=""
+                              layout="fill"
+                              objectFit="contain"
+                            />
                           </div>
                           {vaultImage?.subImage && (
                             <div className="avatar -ml-2 mt-4">
                               <div className="w-4 rounded-full">
-                                <Image src="{ vaultImage?.subImage }" alt="" />
+                                <Image
+                                  src={vaultImage?.subImage}
+                                  alt=""
+                                  layout="fill"
+                                  objectFit="contain"
+                                />
                               </div>
                             </div>
                           )}
@@ -443,12 +467,22 @@ export default function VaultPage() {
                                 swapTab === 'pt' ? 'border-accent' : ''
                               } ${swapTab === 'yt' ? 'border-primary' : ''}`}
                             >
-                              <Image src={vaultImage?.image} alt="" />
+                              <Image
+                                src={vaultImage?.image}
+                                alt=""
+                                layout="fill"
+                                objectFit="contain"
+                              />
                             </div>
                             {vaultImage?.subImage && (
                               <div className="avatar -ml-2 mt-4">
                                 <div className="w-4 rounded-full">
-                                  <Image src={vaultImage?.subImage} />
+                                  <Image
+                                    src={vaultImage?.subImage}
+                                    alt=""
+                                    layout="fill"
+                                    objectFit="contain"
+                                  />
                                 </div>
                               </div>
                             )}
@@ -543,17 +577,27 @@ export default function VaultPage() {
                       <span className="gap-2 w-full">
                         <div className="avatar">
                           <div className="w-8 rounded-full">
-                            <Image src={vaultImage?.image} alt="" />
+                            <Image
+                              src={vaultImage?.image}
+                              alt=""
+                              layout="fill"
+                              objectFit="contain"
+                            />
                           </div>
                           {vaultImage?.subImage && (
                             <div className="avatar -ml-2 mt-4">
                               <div className="w-4 rounded-full">
-                                <Image src={vaultImage?.subImage} alt="" />
+                                <Image
+                                  src={vaultImage?.subImage}
+                                  alt=""
+                                  layout="fill"
+                                  objectFit="contain"
+                                />
                               </div>
                             </div>
                           )}
                         </div>
-                        <div>{vault?.deposit_denom | coinDenom | async}</div>
+                        <div>{vault?.deposit_denom}</div>
                       </span>
                       {swapTab === 'pt' && (
                         <input
@@ -626,12 +670,22 @@ export default function VaultPage() {
                         <span className="gap-2 w-full">
                           <div className="avatar">
                             <div className="w-8 rounded-full">
-                              <Image src={vaultImage?.image} />
+                              <Image
+                                src={vaultImage?.image}
+                                alt=""
+                                layout="fill"
+                                objectFit="contain"
+                              />
                             </div>
                             {vaultImage?.subImage && (
                               <div className="avatar -ml-2 mt-4">
                                 <div className="w-4 rounded-full">
-                                  <Image src={vaultImage?.subImage} />
+                                  <Image
+                                    src={vaultImage?.subImage}
+                                    alt=""
+                                    layout="fill"
+                                    objectFit="contain"
+                                  />
                                 </div>
                               </div>
                             )}
@@ -684,12 +738,22 @@ export default function VaultPage() {
                       <span className="gap-2 w-full">
                         <div className="avatar">
                           <div className="w-8 rounded-full border-2 border-accent">
-                            <Image src={vaultImage?.image} />
+                            <Image
+                              src={vaultImage?.image}
+                              alt=""
+                              layout="fill"
+                              objectFit="contain"
+                            />
                           </div>
                           {vaultImage?.subImage && (
                             <div className="avatar -ml-2 mt-4">
                               <div className="w-4 rounded-full">
-                                <Image src={vaultImage?.subImage} alt="" />
+                                <Image
+                                  src={vaultImage?.subImage}
+                                  alt=""
+                                  layout="fill"
+                                  objectFit="contain"
+                                />
                               </div>
                             </div>
                           )}
@@ -708,12 +772,22 @@ export default function VaultPage() {
                       <span className="gap-2 w-full">
                         <div className="avatar">
                           <div className="w-8 rounded-full border-2 border-primary">
-                            <Image src={vaultImage?.image} alt="" />
+                            <Image
+                              src={vaultImage?.image}
+                              alt=""
+                              layout="fill"
+                              objectFit="contain"
+                            />
                           </div>
                           {vaultImage?.subImage && (
                             <div className="avatar -ml-2 mt-4">
                               <div className="w-4 rounded-full">
-                                <Image src={vaultImage?.subImage} alt="" />
+                                <Image
+                                  src={vaultImage?.subImage}
+                                  alt=""
+                                  layout="fill"
+                                  objectFit="contain"
+                                />
                               </div>
                             </div>
                           )}
@@ -804,12 +878,22 @@ export default function VaultPage() {
                         <span className="gap-2 w-full">
                           <div className="avatar">
                             <div className="w-8 rounded-full border-2 border-accent">
-                              <Image src={vaultImage?.image} alt="" />
+                              <Image
+                                src={vaultImage?.image}
+                                alt=""
+                                layout="fill"
+                                objectFit="contain"
+                              />
                             </div>
                             {vaultImage?.subImage && (
                               <div className="avatar -ml-2 mt-4">
                                 <div className="w-4 rounded-full">
-                                  <Image src={vaultImage?.subImage} alt="" />
+                                  <Image
+                                    src={vaultImage?.subImage}
+                                    alt=""
+                                    layout="fill"
+                                    objectFit="contain"
+                                  />
                                 </div>
                               </div>
                             )}
@@ -858,12 +942,22 @@ export default function VaultPage() {
                         <span className="gap-2 w-full">
                           <div className="avatar">
                             <div className="w-8 rounded-full border-2 border-primary">
-                              <Image src={vaultImage?.image} alt="" />
+                              <Image
+                                src={vaultImage?.image}
+                                alt=""
+                                layout="fill"
+                                objectFit="contain"
+                              />
                             </div>
                             {vaultImage?.subImage && (
                               <div className="avatar -ml-2 mt-4">
                                 <div className="w-4 rounded-full">
-                                  <Image src={vaultImage?.subImage} alt="" />
+                                  <Image
+                                    src={vaultImage?.subImage}
+                                    alt=""
+                                    layout="fill"
+                                    objectFit="contain"
+                                  />
                                 </div>
                               </div>
                             )}
@@ -918,12 +1012,22 @@ export default function VaultPage() {
                       <span className="gap-2 w-full">
                         <div className="avatar">
                           <div className="w-8 rounded-full">
-                            <Image src={vaultImage?.image} alt="" />
+                            <Image
+                              src={vaultImage?.image}
+                              alt=""
+                              layout="fill"
+                              objectFit="contain"
+                            />
                           </div>
                           {vaultImage?.subImage && (
                             <div className="avatar -ml-2 mt-4">
                               <div className="w-4 rounded-full">
-                                <Image src={vaultImage?.subImage} alt="" />
+                                <Image
+                                  src={vaultImage?.subImage}
+                                  alt=""
+                                  layout="fill"
+                                  objectFit="contain"
+                                />
                               </div>
                             </div>
                           )}
@@ -984,12 +1088,17 @@ export default function VaultPage() {
                         swapTab === 'pt' ? 'border-accent' : ''
                       } ${swapTab === 'yt' ? 'border-primary' : ''}`}
                     >
-                      <Image src={vaultImage?.image} alt="" />
+                      <Image src={vaultImage?.image} alt="" layout="fill" objectFit="contain" />
                     </div>
                     {vaultImage?.subImag && (
                       <div className="avatar -ml-2 mt-4">
                         <div className="w-4 rounded-full">
-                          <Image src={vaultImage?.subImage} alt="" />
+                          <Image
+                            src={vaultImage?.subImage}
+                            alt=""
+                            layout="fill"
+                            objectFit="contain"
+                          />
                         </div>
                       </div>
                     )}

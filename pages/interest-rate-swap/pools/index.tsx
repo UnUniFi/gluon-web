@@ -350,11 +350,21 @@ export default function Pools() {
                           <span className="flex-auto"></span>
                           <div className="avatar">
                             <div className="w-12 rounded-full">
-                              <img src="{{ getVaultImage(pool.strategy_contract)?.image }}" />
+                              <Image
+                                src={getVaultImage(pool.strategy_contract)?.image}
+                                alt=""
+                                layout="fill"
+                                objectFit="contain"
+                              />
                             </div>
                             <div className="avatar -ml-3 mt-6">
                               <div className="w-6 rounded-full">
-                                <img src="{{ getVaultImage(pool.strategy_contract)?.subImage }}" />
+                                <Image
+                                  src={getVaultImage(pool.strategy_contract)?.subImage}
+                                  alt=""
+                                  layout="fill"
+                                  objectFit="contain"
+                                />
                               </div>
                             </div>
                           </div>
