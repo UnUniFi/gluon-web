@@ -97,15 +97,13 @@ export default function Positions() {
             <div className="stat">
               <div className="stat-title">Claimable Rewards</div>
               <div className="stat-value">{maturedPtValue}</div>
-              {maturedPtValue && (
-                <button
-                  type="button"
-                  className="btn btn-sm btn-primary mt-4"
-                  onClick={() => router.push('/interest-rate-swap/rewards')}
-                >
-                  Claim
-                </button>
-              )}
+              <button
+                type="button"
+                className="btn btn-sm btn-primary mt-4"
+                // onClick={() => router.push('/interest-rate-swap/rewards')}
+              >
+                Claim
+              </button>
             </div>
           </div>
         </div>
