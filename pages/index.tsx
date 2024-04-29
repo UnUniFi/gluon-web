@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Layout, Wallet } from '@/components';
+// import { Layout, Wallet } from '@/components';
 import { CHAIN_NAME } from '@/config';
 
 export default function Home() {
