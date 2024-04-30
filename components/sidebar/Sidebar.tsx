@@ -68,7 +68,11 @@ export function Sidebar() {
           <span>Interest Rate Swap</span>
         </li>
         <li>
-          <label className="flex gap-4" onClick={() => router.push('/interest-rate-swap')}>
+          <label
+            htmlFor="drawer-main"
+            className="flex gap-4"
+            onClick={() => router.push('/interest-rate-swap')}
+          >
             <span className="flex-none">
               <Info />
             </span>
@@ -77,6 +81,7 @@ export function Sidebar() {
         </li>
         <li>
           <label
+            htmlFor="drawer-main"
             className="flex gap-4"
             onClick={() => router.push('/interest-rate-swap/simple-vaults')}
           >
@@ -87,7 +92,11 @@ export function Sidebar() {
           </label>
         </li>
         <li>
-          <label className="flex gap-4" onClick={() => router.push('/interest-rate-swap/vaults')}>
+          <label
+            htmlFor="drawer-main"
+            className="flex gap-4"
+            onClick={() => router.push('/interest-rate-swap/vaults')}
+          >
             <span className="flex-none">
               <Topic />
             </span>
@@ -95,7 +104,11 @@ export function Sidebar() {
           </label>
         </li>
         <li>
-          <label className="flex gap-4" onClick={() => router.push('/interest-rate-swap/pools')}>
+          <label
+            htmlFor="drawer-main"
+            className="flex gap-4"
+            onClick={() => router.push('/interest-rate-swap/pools')}
+          >
             <span className="flex-none">
               <Pool />
             </span>
@@ -104,6 +117,7 @@ export function Sidebar() {
         </li>
         <li>
           <label
+            htmlFor="drawer-main"
             className="flex gap-4"
             onClick={() => router.push('/interest-rate-swap/positions')}
           >
