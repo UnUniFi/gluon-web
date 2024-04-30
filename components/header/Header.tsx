@@ -31,7 +31,14 @@ export function Header() {
           <Image className="p-1 w-10 h-10" src={favicon} alt="" />
         </button>
         <h1 style={{ maxWidth: '200px' }}>
-          <span style={{ fontFamily: 'Tomorrow', fontSize: '24px', letterSpacing: '1.33px' }}>
+          <span
+            style={{
+              fontFamily: 'Tomorrow',
+              fontSize: '24px',
+              letterSpacing: '1.33px',
+              fontWeight: 700,
+            }}
+          >
             GLUON
           </span>
         </h1>
