@@ -65,7 +65,7 @@ export function WalletTool() {
                     View Balance
                   </button>
                   <button
-                    className="btn gap-1 btn-error btn-outline w-full md:w-auto md:px-8"
+                    className="btn gap-1 btn-error btn-outline md:w-auto md:px-8"
                     // (click)="onDisconnectWallet($event)"
                   >
                     Disconnect
@@ -79,7 +79,7 @@ export function WalletTool() {
 
       {!connected && (
         <button
-          className="btn btn-info btn-outline w-full md:w-auto md:px-8 gap-2"
+          className="btn btn-info btn-outline md:w-auto md:px-8 gap-2"
           // (click)="onConnectWallet($event)"
         >
           <Wallet />
