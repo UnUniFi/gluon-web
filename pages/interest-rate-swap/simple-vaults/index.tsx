@@ -74,7 +74,7 @@ export default function SimpleVaults() {
           <div>
             <div className="stat">
               <div className="stat-title">My Fixed Yield Position Value</div>
-              <div className="stat-value">{0}</div>
+              {/* <div className="stat-value">{0}</div> */}
               {/* <div className="stat-value">{totalPositionValue + currency}</div> */}
               <button
                 type="button"
@@ -89,7 +89,7 @@ export default function SimpleVaults() {
           <div>
             <div className="stat">
               <div className="stat-title">Claimable Rewards</div>
-              <div className="stat-value">{0}</div>
+              {/* <div className="stat-value">{0}</div> */}
               {/* <div className="stat-value">{maturedPtValue + currency}</div> */}
               <button
                 type="button"
