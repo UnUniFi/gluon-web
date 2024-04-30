@@ -5,7 +5,7 @@ export default function About() {
   const router = useRouter();
 
   return (
-    <div className="mx-auto max-w-screen-xl w-full p-8">
+    <div className="mx-auto max-w-screen-xl w-full">
       <div className="card lg:card-side bg-base-100 shadow-xl rounded-lg mb-8">
         <div className="card-body lg:w-3/4">
           <h2 className="card-title break-all">Interest Rate Swap Vault</h2>

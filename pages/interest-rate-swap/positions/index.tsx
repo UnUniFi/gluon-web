@@ -54,7 +54,7 @@ export default function Positions() {
   };
 
   return (
-    <div className="mx-auto max-w-screen-xl w-full p-8">
+    <div className="mx-auto max-w-screen-xl w-full">
       <div className="flex flex-row flex-wrap mb-8">
         <div className="text-xl breadcrumbs">
           <ul>
