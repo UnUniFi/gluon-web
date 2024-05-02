@@ -41,7 +41,7 @@ function CreateCosmosApp({ Component, pageProps }: AppProps) {
         signerOptions={signerOptions}
       >
         <div
-          className={`drawer w-screen h-screen ${
+          className={`drawer w-screen h-screen lg:drawer-open ${
             router.pathname.includes('/interest-rate-swap/pools') ||
             router.pathname.includes('/interest-rate-swap/vaults')
               ? 'bg-[#39465d]'

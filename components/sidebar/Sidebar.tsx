@@ -59,7 +59,7 @@ export function Sidebar() {
   const router = useRouter();
 
   return (
-    <div className="drawer-side overflow-auto">
+    <div className="drawer-side">
       <label htmlFor="drawer-main" className="drawer-overlay"></label>
 
       <ul className="menu p-4 w-11/12 sm:w-3/4 md:2/3 lg:w-full h-full bg-base-200">
