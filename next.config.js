@@ -16,4 +16,13 @@ module.exports = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/interest-rate-swap/simple-vaults',
+        permanent: false,
+      },
+    ];
+  },
 };

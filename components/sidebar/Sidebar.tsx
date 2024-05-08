@@ -71,7 +71,7 @@ export function Sidebar() {
           <label
             htmlFor="drawer-main"
             className="flex gap-4"
-            onClick={() => router.push('/interest-rate-swap')}
+            onClick={() => router.push('/interest-rate-swap/about')}
           >
             <span className="flex-none">
               <Info />
