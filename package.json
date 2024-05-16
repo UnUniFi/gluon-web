@@ -19,8 +19,8 @@
     "@chain-registry/types": "0.17.1",
     "@cosmjs/cosmwasm-stargate": "0.31.1",
     "@cosmjs/stargate": "0.31.1",
-    "@cosmos-kit/react": "2.10.9",
     "@cosmos-client/core": "0.47.4",
+    "@cosmos-kit/react": "2.10.9",
     "@emotion/cache": "^11.11.0",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
@@ -31,6 +31,8 @@
     "chain-registry": "1.25.4",
     "cosmos-kit": "2.8.6",
     "daisyui": "^3.1.1",
+    "dexie": "^3.0.3",
+    "dexie-react-hooks": "^1.1.7",
     "fast-fuzzy": "1.12.0",
     "framer-motion": "9.0.7",
     "match-sorter": "^6.3.3",
@@ -40,7 +42,7 @@
     "react-dom": "18.2.0",
     "react-icons": "4.6.0",
     "tailwindcss": "^3.3.2",
-    "dexie": "^3.0.3"
+    "@keplr-wallet/types": "^0.10.3"
   },
   "devDependencies": {
     "@types/node": "18.11.9",

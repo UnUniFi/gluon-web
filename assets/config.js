@@ -1,10 +1,11 @@
-const restPort = location.protocol === 'https:' ? 1318 : 1317;
-const websocketPort = location.protocol === 'https:' ? 26658 : 26657;
-const faucetUbtcPort = location.protocol === 'https:' ? 8001 : 8000;
-const faucetUguuPort = location.protocol === 'https:' ? 8003 : 8002;
-const faucetJpuPort = location.protocol === 'https:' ? 8005 : 8004;
-const faucetUethPort = location.protocol === 'https:' ? 8007 : 8006;
-const faucetEuuPort = location.protocol === 'https:' ? 8009 : 8008;
+const protocol = 'http';
+const restPort = protocol === 'https:' ? 1318 : 1317;
+const websocketPort = protocol === 'https:' ? 26658 : 26657;
+const faucetUbtcPort = protocol === 'https:' ? 8001 : 8000;
+const faucetUguuPort = protocol === 'https:' ? 8003 : 8002;
+const faucetJpuPort = protocol === 'https:' ? 8005 : 8004;
+const faucetUethPort = protocol === 'https:' ? 8007 : 8006;
+const faucetEuuPort = protocol === 'https:' ? 8009 : 8008;
 
 // const domainCauchyEA = 'a.ununifi-test-v1.cauchye.net';
 const domainCauchyEA = 'gluon-beta.cauchye.net';
@@ -365,8 +366,8 @@ const configs = [
   {
     id: domainCauchyEA,
     name: nameCauchyEA,
-    restURL: `${location.protocol}//${domainCauchyEA}:${restPort}`,
-    websocketURL: `${location.protocol.replace('http', 'ws')}//${domainCauchyEA}:${websocketPort}`,
+    restURL: `${protocol}//${domainCauchyEA}:${restPort}`,
+    websocketURL: `${protocol.replace('http', 'ws')}//${domainCauchyEA}:${websocketPort}`,
     chainID,
     chainName,
     bech32Prefix,
@@ -386,7 +387,7 @@ const configs = [
       faucet: [
         {
           hasFaucet: true,
-          faucetURL: `${location.protocol}//${domainCauchyEA}:${faucetUguuPort}`,
+          faucetURL: `${protocol}//${domainCauchyEA}:${faucetUguuPort}`,
           denom: 'uguu',
           creditAmount: 2000000000,
           maxCredit: 2000000000,
@@ -401,8 +402,8 @@ const configs = [
   // {
   //   id: domainCauchyEB,
   //   name: nameCauchyEB,
-  //   restURL: `${location.protocol}//${domainCauchyEB}:${restPort}`,
-  //   websocketURL: `${location.protocol.replace('http', 'ws')}//${domainCauchyEB}:${websocketPort}`,
+  //   restURL: `${protocol}//${domainCauchyEB}:${restPort}`,
+  //   websocketURL: `${protocol.replace('http', 'ws')}//${domainCauchyEB}:${websocketPort}`,
   //   chainID,
   //   chainName,
   //   bech32Prefix,
@@ -421,7 +422,7 @@ const configs = [
   //     faucet: [
   //       {
   //         hasFaucet: true,
-  //         faucetURL: `${location.protocol}//${domainCauchyEB}:${faucetUguuPort}`,
+  //         faucetURL: `${protocol}//${domainCauchyEB}:${faucetUguuPort}`,
   //         denom: 'uguu',
   //         creditAmount: 2000000000,
   //         maxCredit: 2000000000,
@@ -436,8 +437,8 @@ const configs = [
   // {
   //   id: domainCauchyEC,
   //   name: nameCauchyEC,
-  //   restURL: `${location.protocol}//${domainCauchyEC}:${restPort}`,
-  //   websocketURL: `${location.protocol.replace('http', 'ws')}//${domainCauchyEC}:${websocketPort}`,
+  //   restURL: `${protocol}//${domainCauchyEC}:${restPort}`,
+  //   websocketURL: `${protocol.replace('http', 'ws')}//${domainCauchyEC}:${websocketPort}`,
   //   chainID,
   //   chainName,
   //   bech32Prefix,
@@ -456,7 +457,7 @@ const configs = [
   //     faucet: [
   //       {
   //         hasFaucet: true,
-  //         faucetURL: `${location.protocol}//${domainCauchyEC}:${faucetUguuPort}`,
+  //         faucetURL: `${protocol}//${domainCauchyEC}:${faucetUguuPort}`,
   //         denom: 'uguu',
   //         creditAmount: 2000000000,
   //         maxCredit: 2000000000,
@@ -471,8 +472,8 @@ const configs = [
   // {
   //   id: domainCauchyED,
   //   name: nameCauchyED,
-  //   restURL: `${location.protocol}//${domainCauchyED}:${restPort}`,
-  //   websocketURL: `${location.protocol.replace('http', 'ws')}//${domainCauchyED}:${websocketPort}`,
+  //   restURL: `${protocol}//${domainCauchyED}:${restPort}`,
+  //   websocketURL: `${protocol.replace('http', 'ws')}//${domainCauchyED}:${websocketPort}`,
   //   chainID,
   //   chainName,
   //   bech32Prefix,
@@ -491,7 +492,7 @@ const configs = [
   //     faucet: [
   //       {
   //         hasFaucet: true,
-  //         faucetURL: `${location.protocol}//${domainCauchyED}:${faucetUguuPort}`,
+  //         faucetURL: `${protocol}//${domainCauchyED}:${faucetUguuPort}`,
   //         denom: 'uguu',
   //         creditAmount: 2000000000,
   //         maxCredit: 2000000000,
@@ -503,3 +504,5 @@ const configs = [
   //   },
   // },
 ];
+
+module.exports = { configs };

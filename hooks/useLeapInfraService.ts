@@ -13,13 +13,12 @@ interface Key {
   isNanoLedger: boolean;
 }
 
-const useLeapInfraService = () => {
-  const configService = useConfigService();
-  const [loadingDialog, setLoadingDialog] = useState<string | null>(null);
+const useLeapInfraService = (configService: ConfigService) => {
+  // const [loadingDialog, setLoadingDialog] = useState<string | null>(null);
 
   const getKey = async (): Promise<Key | undefined> => {
     if (!window.leap) {
-      // alert('Please install Leap extension');
+      alert('Please install Leap extension');
       return;
     }
     const chainID = configService.configs[0].chainID;
@@ -30,7 +29,7 @@ const useLeapInfraService = () => {
 
   const getExternalKey = async (id: string): Promise<Key | undefined> => {
     if (!window.leap) {
-      // alert('Please install Leap extension');
+      alert('Please install Leap extension');
       return;
     }
     const externalChains = configService.configs[0].externalChains;
@@ -120,7 +119,7 @@ const useLeapInfraService = () => {
   };
 
   const suggestChainAndGetKey = async (): Promise<Key | undefined> => {
-    setLoadingDialog('connecting to Leap...');
+    // setLoadingDialog('connecting to Leap...');
     try {
       await suggestChain();
     } catch (error) {
@@ -133,13 +132,13 @@ const useLeapInfraService = () => {
     } catch (error) {
       console.error(error);
     } finally {
-      setLoadingDialog(null);
+      // setLoadingDialog(null);
     }
     return keyData;
   };
 
   const suggestExternalChainAndGetKey = async (id: string): Promise<Key | undefined> => {
-    setLoadingDialog('connecting to Leap...');
+    // setLoadingDialog('connecting to Leap...');
     try {
       await suggestExternalChain(id);
     } catch (error) {
@@ -152,7 +151,7 @@ const useLeapInfraService = () => {
     } catch (error) {
       console.error(error);
     } finally {
-      setLoadingDialog(null);
+      // setLoadingDialog(null);
     }
     return keyData;
   };
@@ -176,7 +175,6 @@ const useLeapInfraService = () => {
       public_key: pubkey,
       address: accAddress.toString(),
     };
-    console.log(storedWallet);
     return storedWallet;
   };
 

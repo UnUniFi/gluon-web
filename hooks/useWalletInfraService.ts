@@ -1,18 +1,22 @@
 import { useState, useEffect, useCallback } from 'react';
-import Dexie from 'dexie';
 import { StoredWallet, CosmosWallet, Wallet } from '@/types';
-import { useDbService } from './useDbService'; // Assuming you have a similar service to provide Dexie instance
 import cosmosclient from '@cosmos-client/core';
+import { db } from './useDbService';
 
 const useWalletInfraService = () => {
-  const db = useDbService().db;
-
-  const [storedWallets, setStoredWallets] = useState<StoredWallet[] | null>(null);
-  const [cosmosWallets, setCosmosWallets] = useState<CosmosWallet[] | null>(null);
-  const [wallets, setWallets] = useState<Wallet[] | null>(null);
-  const [currentStoredWallet, setCurrentStoredWallet] = useState<StoredWallet | null>(null);
-  const [currentCosmosWallet, setCurrentCosmosWallet] = useState<CosmosWallet | null>(null);
-  const [currentWallet, setCurrentWallet] = useState<Wallet | null>(null);
+  const [storedWallets, setStoredWalletsState] = useState<StoredWallet[] | null>(null);
+  const [cosmosWallets, setCosmosWalletsState] = useState<CosmosWallet[] | null>(null);
+  const [wallets, setWalletsState] = useState<Wallet[] | null>(null);
+  const [currentStoredWallet, setCurrentStoredWalletState] = useState<StoredWallet | undefined>();
+  const [currentCosmosWallet, setCurrentCosmosWalletState] = useState<CosmosWallet | undefined>();
+  const [currentWallet, setCurrentWalletState] = useState<Wallet | undefined>();
+  const [currentStoredWallets, setCurrentStoredWalletsState] = useState<StoredWallet[] | null>(
+    null
+  );
+  const [currentCosmosWallets, setCurrentCosmosWalletsState] = useState<CosmosWallet[] | null>(
+    null
+  );
+  const [currentWallets, setCurrentWalletsState] = useState<Wallet[] | null>(null);
 
   const convertStoredWalletToCosmosWallet = (storedWallet: StoredWallet): CosmosWallet => {
     const public_key = new cosmosclient.proto.cosmos.crypto.secp256k1.PubKey({
@@ -64,30 +68,37 @@ const useWalletInfraService = () => {
     };
   };
 
-  const load = useCallback(async () => {
+  const load = async () => {
     const storedWallets = await listStoredWallets();
-    setStoredWallets(storedWallets);
+    setStoredWalletsState(storedWallets);
     const cosmosWallets = await listCosmosWallets();
-    setCosmosWallets(cosmosWallets);
+    setCosmosWalletsState(cosmosWallets);
     const wallets = await listWallets();
-    setWallets(wallets);
+    setWalletsState(wallets);
 
-    const currentStoredWallets = await listCurrentStoredWallets();
-    setCurrentStoredWallet(currentStoredWallets[0] || null);
-    const currentCosmosWallets = await listCurrentCosmosWallets();
-    setCurrentCosmosWallet(currentCosmosWallets[0] || null);
-    const currentWallets = await listCurrentWallets();
-    setCurrentWallet(currentWallets[0] || null);
-  }, [db]);
+    const currentStoredWalletsTmp = await listCurrentStoredWallets();
+    setCurrentStoredWalletsState([...currentStoredWalletsTmp]);
+    const currentCosmosWalletsTmp = await listCurrentCosmosWallets();
+    setCurrentCosmosWalletsState([...currentCosmosWalletsTmp]);
+    const currentWalletsTmp = await listCurrentWallets();
+    setCurrentWalletsState([...currentWalletsTmp]);
+
+    const currentStoredWalletTmp = await getCurrentStoredWallet();
+    setCurrentStoredWalletState(currentStoredWalletTmp);
+    const currentCosmosWalletTmp = await getCurrentCosmosWallet();
+    setCurrentCosmosWalletState(currentCosmosWalletTmp);
+    const currentWalletTmp = await getCurrentWallet();
+    setCurrentWalletState(currentWalletTmp);
+  };
 
   useEffect(() => {
     load();
-  }, [load]);
+  }, []);
 
   const listStoredWallets = async (): Promise<StoredWallet[]> => {
     try {
       const array = await db.table('wallets').toArray();
-      return array.map((element) => ({
+      return array.map((element: any) => ({
         id: element.id,
         type: element.type,
         key_type: element.key_type,
@@ -123,7 +134,7 @@ const useWalletInfraService = () => {
   const listCurrentStoredWallets = async (): Promise<StoredWallet[]> => {
     try {
       const array = await db.table('current_wallets').toArray();
-      return array.map((element) => ({
+      return array.map((element: any) => ({
         id: element.id,
         type: element.type,
         key_type: element.key_type,
@@ -202,7 +213,7 @@ const useWalletInfraService = () => {
       const existingCurrentStoredWallets = await db.table('current_wallets').toArray();
       if (existingCurrentStoredWallets.length) {
         const primaryKeys = existingCurrentStoredWallets.map(
-          (existingCurrentStoredWallet) => existingCurrentStoredWallet.index
+          (existingCurrentStoredWallet: any) => existingCurrentStoredWallet.index
         );
         await db.table('current_wallets').bulkDelete(primaryKeys);
       }
@@ -268,12 +279,57 @@ const useWalletInfraService = () => {
     }
   };
 
+  const getStoredWallet = async (id: string): Promise<StoredWallet | undefined> => {
+    try {
+      const data = await db.table('wallets').where('id').equals(id).first();
+      const storedWallet: StoredWallet = {
+        id: id,
+        type: data.type,
+        key_type: data.key_type,
+        public_key: data.public_key,
+        address: data.address,
+      };
+      return storedWallet;
+    } catch (error) {
+      console.error(error);
+      return undefined;
+    }
+  };
+
+  const getCosmosWallet = async (id: string): Promise<CosmosWallet | undefined> => {
+    try {
+      const storedWallet = await getStoredWallet(id);
+      if (!storedWallet) {
+        throw Error(`There is no wallet with id: ${id}!`);
+      }
+      const cosmosWallet = convertStoredWalletToCosmosWallet(storedWallet);
+      return cosmosWallet;
+    } catch (error) {
+      console.error(error);
+      return undefined;
+    }
+  };
+
+  const getWallet = async (id: string): Promise<Wallet | undefined> => {
+    try {
+      const cosmosWallet = await getCosmosWallet(id);
+      if (!cosmosWallet) {
+        throw Error(`There is no wallet with id: ${id}!`);
+      }
+      const wallet = convertCosmosWalletToWallet(cosmosWallet);
+      return wallet;
+    } catch (error) {
+      console.error(error);
+      return undefined;
+    }
+  };
+
   const deleteStoredWallet = async (): Promise<void> => {
     try {
       const existingCurrentStoredWallets = await db.table('current_wallets').toArray();
       if (existingCurrentStoredWallets.length) {
         const primaryKeys = existingCurrentStoredWallets.map(
-          (existingCurrentStoredWallet) => existingCurrentStoredWallet.index
+          (existingCurrentStoredWallet: any) => existingCurrentStoredWallet.index
         );
         await db.table('current_wallets').bulkDelete(primaryKeys);
       }
@@ -290,6 +346,9 @@ const useWalletInfraService = () => {
     currentStoredWallet,
     currentCosmosWallet,
     currentWallet,
+    currentStoredWallets,
+    currentCosmosWallets,
+    currentWallets,
     load,
     setCurrentStoredWallet,
     setCurrentCosmosWallet,
@@ -298,6 +357,22 @@ const useWalletInfraService = () => {
     setCosmosWallet,
     setWallet,
     deleteStoredWallet,
+    convertStoredWalletToCosmosWallet,
+    convertCosmosWalletToStoredWallet,
+    convertCosmosWalletToWallet,
+    convertWalletToStoredWallet,
+    listCurrentStoredWallets,
+    listCurrentCosmosWallets,
+    listCurrentWallets,
+    getCurrentStoredWallet,
+    getCurrentCosmosWallet,
+    getCurrentWallet,
+    listStoredWallets,
+    listCosmosWallets,
+    listWallets,
+    getWallet,
+    getCosmosWallet,
+    getStoredWallet,
   };
 };
 

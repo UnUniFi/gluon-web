@@ -1,57 +1,35 @@
 import { useState } from 'react';
 import cosmosclient from '@cosmos-client/core';
 import { Key } from '@keplr-wallet/types';
+import { StoredWallet } from '@/types';
 
 import useKeplrInfraService from './useKelpInfraService';
+import useConfig from './useConfigService';
 
 export function useKeplrService() {
-  const [keplrInfrastructureService] = useKeplrInfraService();
-  const [storedWallet, setStoredWallet] = useState(null);
+  const config = useConfig();
+  const keplrInfra = useKeplrInfraService(config);
 
-  const connectWallet = async () => {
-    try {
-      const wallet = await keplrInfrastructureService.connectWallet();
-      setStoredWallet(wallet);
-      return wallet;
-    } catch (error) {
-      console.error('Error connecting wallet:', error);
-      return null;
-    }
+  const connectWallet = async (): Promise<StoredWallet | null | undefined> => {
+    return await keplrInfra.connectWallet();
   };
 
-  const connectExternalWallet = async (id) => {
-    try {
-      const key = await keplrInfrastructureService.connectExternalWallet(id);
-      return key;
-    } catch (error) {
-      console.error('Error connecting external wallet:', error);
-      return null;
-    }
+  const connectExternalWallet = async (id: string): Promise<Key | null | undefined> => {
+    return await keplrInfra.connectExternalWallet(id);
   };
 
-  const signTx = async (txBuilder, signerBaseAccount) => {
-    try {
-      const signedTx = await keplrInfrastructureService.signTx(txBuilder, signerBaseAccount);
-      return signedTx;
-    } catch (error) {
-      console.error('Error signing transaction:', error);
-      return null;
-    }
+  const signTx = async (
+    txBuilder: cosmosclient.TxBuilder,
+    signerBaseAccount: cosmosclient.proto.cosmos.auth.v1beta1.BaseAccount
+  ): Promise<cosmosclient.TxBuilder> => {
+    return await keplrInfra.signTx(txBuilder, signerBaseAccount);
   };
 
-  const checkWallet = async () => {
-    try {
-      const wallet = await keplrInfrastructureService.checkWallet();
-      setStoredWallet(wallet);
-      return wallet;
-    } catch (error) {
-      console.error('Error checking wallet:', error);
-      return null;
-    }
+  const checkWallet = async (): Promise<StoredWallet | null | undefined> => {
+    return await keplrInfra.checkWallet();
   };
 
   return {
-    storedWallet,
     connectWallet,
     connectExternalWallet,
     signTx,
